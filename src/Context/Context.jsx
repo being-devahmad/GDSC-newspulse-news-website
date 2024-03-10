@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,13 +11,11 @@ export const NewsProvider = ({ children }) => {
     // Fetch news data and update the state
     const getNewsData = async () => {
         try {
-            const response = await fetch("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=87e3395bfeac484983350246ab27aa3e")
+            const response = await fetch("https://newsdata.io/api/1/news?apikey=pub_397457303c257d57c812cc4ef444cbfd67f7d&q=news&country=pk&category=sports,technology,politics")
             const data = await response.json()
-            const newsWithIds = data.articles.map(article => ({ ...article, id: uuidv4() }));
+            const newsWithIds = data.results.map(article => ({ ...article, id: uuidv4() }));
             console.log(newsWithIds)
             setNews(newsWithIds)
-            // console.log(data.articles);
-            // setNews(data.articles)
         } catch (error) {
             console.log(error)
         }

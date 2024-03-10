@@ -13,11 +13,12 @@ const NewsDetails = () => {
     return (
         <div className="flex md:flex-nowrap flex-wrap mt-5 gap-9 lg:mx-36 md:mx-24 mx-8">
             <div className="h-screen">
-                <img
-                    src={singleNews?.urlToImage}
-                    alt="Laptop"
-                    className=" rounded-md h-96 w-[2500px]"
-                />
+                <Link to={singleNews?.link}>
+                    <img
+                        src={singleNews?.image_url}
+                        alt="Laptop"
+                        className=" rounded-md h-96 w-[2500px]"
+                    /></Link>
                 <Link to={'/news'}>
                     <p className="text-2xl mt-4">
                         <IoArrowBack />
@@ -29,20 +30,20 @@ const NewsDetails = () => {
                 <h2 className="font-bold text-2xl pt-2">Description:</h2>
                 <p className="text-lg">{singleNews?.description}</p>
                 <h1 className="text-lg pt-2">
-                    <span className="font-bold text-xl">Content: </span>
-                    {singleNews?.content}
+                    <span className="font-bold text-xl">Country: </span>
+                    {singleNews?.country}
                 </h1>
                 <h1 className="text-lg pt-2">
-                    <span className="font-bold text-xl">Author: </span>
-                    {singleNews?.author}
+                    <span className="font-bold text-xl">Category: </span>
+                    {singleNews?.category[0]}
                 </h1>
                 <h1 className="text-lg pt-2">
                     <span className="font-bold text-xl">Published At: </span>
-                    {singleNews?.publishedAt}
+                    {singleNews?.pubDate}
                 </h1>
                 <h1 className="text-lg pt-2">
-                    <span className="font-bold text-xl">Name of Organization: </span>
-                    {singleNews?.source.name}
+                    <span className="font-bold text-xl">Language: </span>
+                    {singleNews?.language}
                 </h1>
             </div>
         </div>

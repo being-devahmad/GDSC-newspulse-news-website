@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import NewsDetails from './pages/NewsDetails'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/news' element={<News />} />
           <Route path='/news/:id' element={<NewsDetails />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )
